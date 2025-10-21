@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AquaFresh Design System - Sand and Water Theme
+All colors are HSL for consistent theming.
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Ocean Emerald & Coral Palette */
+    --emerald-light: 160 84% 85%;      /* #a7f3d0 */
+    --emerald-medium: 160 84% 39%;     /* #10b981 */
+    --ocean-deep: 205 87% 21%;         /* #0f172a */
+    --ocean-bright: 199 89% 48%;       /* #0ea5e9 */
+    --coral-warm: 14 91% 60%;          /* #f97316 */
+    --coral-light: 161 101% 87%;         /* #fed7aa */
+    --amber-gold: 45 93% 47%;          /* #eab308 */
+    --sage-soft: 142 76% 73%;          /* #86efac */
+    
+    /* System Colors using brand palette */
+    --background: 160 30% 97%;          /* Very light emerald */
+    --foreground: 205 87% 21%;          /* Deep ocean */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 205 87% 21%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 87% 21%;
+    
+    --primary: 160 84% 39%;             /* Emerald medium */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 160 84% 85%;           /* Emerald light */
+    --secondary-foreground: 205 87% 21%;
+    
+    --muted: 142 76% 90%;               /* Very soft sage */
+    --muted-foreground: 160 30% 45%;
+    
+    --accent: 14 91% 60%;               /* Coral warm */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 142 76% 85%;              /* Sage soft */
+    --input: 142 76% 85%;
+    --ring: 160 84% 39%;                /* Emerald medium */
+    
+    --radius: 0.75rem;
+    
+    /* Custom Gradients */
+    --gradient-ocean: linear-gradient(135deg, 
+      hsl(var(--ocean-deep)), 
+      hsl(var(--ocean-bright)), 
+      hsl(var(--emerald-medium))
+    );
+    --gradient-coral: linear-gradient(135deg, 
+      hsl(var(--coral-warm)), 
+      hsl(var(--coral-light))
+    );
+    --gradient-emerald: linear-gradient(180deg, 
+      hsl(var(--emerald-light)), 
+      hsl(var(--sage-soft))
+    );
+    --gradient-sunset: linear-gradient(180deg, 
+      hsl(var(--amber-gold)), 
+      hsl(var(--coral-warm))
+    );
+    
+    /* Shadows with brand colors */
+    --shadow-emerald: 0 10px 30px -10px hsl(var(--emerald-medium) / 0.3);
+    --shadow-coral: 0 5px 20px -5px hsl(var(--coral-warm) / 0.4);
+    --shadow-float: 0 20px 40px -15px hsl(var(--ocean-deep) / 0.2);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold;
+  }
+}
+
+@layer components {
+  /* Water Ripple Effect */
+  .water-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .water-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192, 225, 254, 0.8) 0%, transparent 70%);
+    transition: width 0.6s ease-out, height 0.6s ease-out;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .water-ripple:hover::before {
+    width: 300px;
+    height: 300px;
+    color:var(--ocean-deep);
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  .hero-style1{
+    background-image: linear-gradient(rgba(0, 119, 182, 0.3), rgba(0, 180, 216, 0.3)), url(${heroBackground}),
+  }
+  /* Wave Animation */
+  .wave-animation {
+    background: linear-gradient(-45deg, 
+      hsl(var(--emerald-light)), 
+      hsl(var(--ocean-bright)), 
+      hsl(var(--ocean-deep)), 
+      hsl(var(--emerald-medium))
+    );
+    background-size: 400% 400%;
+    animation: wave 8s ease-in-out infinite;
+  }
+  .wave-animation2 {
+    background: linear-gradient(-45deg, 
+      hsl(var(--emerald-light)), 
+      hsl(var(--ocean-bright)), 
+      hsl(var(--emerald-medium))
+    );
+    background-size: 100% 100%;
+    animation: wave 8s ease-in-out infinite;
+  }
+  
+  @keyframes wave {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+  }
+  
+  /* Flip Card */
+  .flip-card {
+    perspective: 1000px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: var(--radius);
+  }
+  
+  .flip-card-back {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: auto;
+    margin: 10px;
+  }
+}
+
+.flip-card-section{
+  margin-bottom: 4%;
+}
+
+.related-view button{
+  background-color: #0ea5e9;
+}
+
+@layer utilities {
+  .bg-gradient-ocean { background: var(--gradient-ocean); }
+  .bg-gradient-coral { background: var(--gradient-coral); }
+  .bg-gradient-emerald { background: var(--gradient-emerald); }
+  .bg-gradient-sunset { background: var(--gradient-sunset); }
+  
+  .shadow-emerald { box-shadow: var(--shadow-emerald); }
+  .shadow-coral { box-shadow: var(--shadow-coral); }
+  .shadow-float { box-shadow: var(--shadow-float); }
+  
+  .transition-smooth { transition: var(--transition-smooth); }
+  .transition-bounce { transition: var(--transition-bounce); }
+}
+
