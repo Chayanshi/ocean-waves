@@ -1,12 +1,11 @@
-import { useState,useEffect  } from "react";
-import { Link,useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
 
-// Get all unique categories
 const uniqueCategories = ["All", ...Array.from(new Set(products.map(p => p.category)))];
 
 function useQuery() {
@@ -15,31 +14,45 @@ function useQuery() {
 
 const AllProducts = () => {
   const query = useQuery();
-  const initialCategory = query.get("category") || "All"; // read category from URL
+  const navigate = useNavigate();
+
+  const initialCategory = query.get("category") || "All";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
-    // If URL changes, update the selected category
+  // Update URL and state when user selects category
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    if (category === "All") {
+      navigate("/products"); // reset to base page
+    } else {
+      navigate(`/products?category=${category}`);
+    }
+  };
+
+  // Sync state with query param (when navigating or reloading)
   useEffect(() => {
-    setSelectedCategory(query.get("category") || "All");
+    const category = query.get("category") || "All";
+    setSelectedCategory(category);
   }, [query]);
 
-  const filteredProducts = selectedCategory === "All"
-    ? products
-    : products.filter(product => product.category === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter(product => product.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-background" >
+    <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Header Section */}
-      <section 
+      <section
         className=".hero-style1 relative min-h-screen flex items-center justify-center wave-animation2 overflow-hidden"
         style={{
           minHeight: 300,
-          maxHeight: 400, 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          maxHeight: 400,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
         <div className=".hero-style1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -47,7 +60,7 @@ const AllProducts = () => {
             All Products
           </h1>
           <p className="text-xl text-water-deep/80 max-w-2xl mx-auto">
-            Discover our complete selection of premium fish and seafood, 
+            Discover our complete selection of premium fish and seafood,
             sourced fresh from the world's finest waters.
           </p>
         </div>
@@ -62,7 +75,7 @@ const AllProducts = () => {
                 key={category}
                 variant={selectedCategory === category ? "ocean" : "outline"}
                 className="font-medium"
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategoryChange(category)}
               >
                 {category}
               </Button>
@@ -82,8 +95,8 @@ const AllProducts = () => {
               >
                 <CardContent className="p-0">
                   <div className="aspect-square bg-gradient-shore flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={product.image} 
+                    <img
+                      src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover"
                     />
@@ -97,7 +110,7 @@ const AllProducts = () => {
                     <h3 className="font-heading font-semibold text-lg text-water-deep mb-2">
                       {product.name}
                     </h3>
-                     <p className="text-sm text-water-deep/70 mb-3">
+                    <p className="text-sm text-water-deep/70 mb-3">
                       {product.tagline}
                     </p>
                     <div className="flex items-center justify-between">
@@ -110,7 +123,12 @@ const AllProducts = () => {
                         size="sm"
                         className="opacity-0 group-hover:opacity-100 transition-opacity"
                       >
-                        <Link to={`/product/${product.id}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                        <Link
+                          to={`/product/${product.id}`}
+                          onClick={() =>
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }
+                        >
                           View Details
                         </Link>
                       </Button>
@@ -120,6 +138,13 @@ const AllProducts = () => {
               </Card>
             ))}
           </div>
+
+          {/* If no products in this category */}
+          {filteredProducts.length === 0 && (
+            <p className="text-center text-water-deep/70 mt-8">
+              No products found in this category.
+            </p>
+          )}
         </div>
       </section>
 

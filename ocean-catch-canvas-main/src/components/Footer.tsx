@@ -10,12 +10,6 @@ const Footer = () => {
     { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
-  const quickLinks = [
-    { name: "Fresh Fish", href: "/products" },
-    { name: "Frozen Fish", href: "/products" },
-    { name: "Shellfish", href: "/products" },
-    { name: "Exotic Fish", href: "/products" },
-  ];
 
 
   // Count products per category
@@ -97,24 +91,9 @@ const Footer = () => {
                 <Link
                   to="/our-story"
                   className="text-ocean-deep/80 hover:text-ocean-bright transition-colors"
+                  onClick={() =>window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
                   Our Story
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="text-ocean-deep/80 hover:text-ocean-bright transition-colors"
-                >
-                  Sustainability
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  className="text-ocean-deep/80 hover:text-ocean-bright transition-colors"
-                >
-                  Quality Promise
                 </Link>
               </li>
               <li>
