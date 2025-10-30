@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+🐟 Welcome to D.R. Taru & Sons!
+We are passionate about bringing the freshest and finest seafood right to your table.
+Located in the heart of Pune City, we’ve built our reputation on quality, sustainability, and customer satisfaction, setting us apart in seafood retail.
 
-## Project info
+📜 Our Story
 
-**URL**: https://lovable.dev/projects/d54434fb-dd5a-4c18-a449-1b91fff53d40
+Founded in 1950, D.R. Taru & Sons began with a simple vision:
 
-## How can I edit this code?
+“A small venture with a big dream” — to connect our community with high-quality, sustainably sourced fish and seafood.
 
-There are several ways of editing your application.
+With deep roots in the fishing industry, our founder Mr. Dattatray Taru emphasized the importance of fresh ingredients and ethical practices.
+Today, we proudly offer a diverse selection of seafood that blends tradition and innovation — bringing the best of the sea directly to your table.
 
-**Use Lovable**
+🧭 Our Commitment to Quality
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d54434fb-dd5a-4c18-a449-1b91fff53d40) and start prompting.
+We take immense pride in sourcing our fish directly from trusted fishermen who share our values of sustainability and integrity.
+Every product undergoes rigorous quality checks to ensure you receive only the freshest seafood available.
 
-Changes made via Lovable will be committed automatically to this repo.
+🌊 Sustainability Matters
 
-**Use your preferred IDE**
+At D.R. Taru & Sons, sustainability is not just a policy — it’s our promise.
+We collaborate with organizations promoting responsible fishing practices and continuously strive to reduce our environmental impact.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+By choosing us, you’re not only getting exceptional seafood —
+you’re supporting sustainable fisheries and healthier oceans for generations to come.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+👨‍🍳 Meet Our Team
 
-Follow these steps:
+Our friendly and knowledgeable team is here to provide:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Expert advice on fish selection and cooking techniques
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Personalized recommendations based on your taste preferences
 
-# Step 3: Install the necessary dependencies.
-npm i
+Exceptional service for both home cooks and professional chefs
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+We’re dedicated to helping you enjoy a truly extraordinary culinary experience.
 
-**Edit a file directly in GitHub**
+🐠 What We Offer
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Fresh Fish & Seafood:
+A wide variety of daily catches — from classic favorites like salmon and cod to exotic options such as octopus and sea bass.
 
-**Use GitHub Codespaces**
+Expert Guidance:
+Personalized cutting and cleaning services, done with precision and care.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Recipe Inspiration:
+Creative ideas and cooking tips shared through our blog and social media.
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d54434fb-dd5a-4c18-a449-1b91fff53d40) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Follow us on our platforms or subscribe to our newsletter for updates on new arrivals, special offers, and exclusive events at D.R. Taru & Sons.
